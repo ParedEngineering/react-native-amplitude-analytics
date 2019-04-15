@@ -78,6 +78,12 @@ public class RNAmplitudeSDK extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void getSessionId(Promise promise) {
+    String sessionId = String.valueOf(Amplitude.getInstance().getSessionId());
+    promise.resolve(sessionId);
+  }
+
+  @ReactMethod
   public void regenerateDeviceId() {
     Amplitude.getInstance().regenerateDeviceId();
   }
